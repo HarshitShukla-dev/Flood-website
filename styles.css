@@ -45,9 +45,6 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-radius: 8px;
-  background-color: #3C2A21;
-  padding: 1rem;
 }
 
 nav ul {
@@ -67,8 +64,9 @@ nav a {
   padding: 0.5rem;
   color: #D5CEA3;
   text-decoration: none;
-  border-radius: 20px;
+  border-radius: 50px;
   transition: all 0.3s ease-in-out;
+  background-color: #3C2A21;
 }
 
 nav a:hover {
