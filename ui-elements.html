@@ -1,110 +1,304 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>About Us - Flood Heroes</title>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Flood Heroes - About Us</title>
+
     <!-- Import Material UI CSS -->
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
-    />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" integrity="sha512-qW8poNkApg9zQgZ+YbIaHl/Iea0/AGJfOqbvP+eLLz8xMrDgX9z2IvH/qT+Bd8BBMywLJ14P/vhcKfSKlIy8qA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <!-- Import Material UI Icons -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
-    <!-- Import custom CSS -->
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-    <!-- Navigation bar -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+        integrity="sha512-c/m1zBfUyXTmqKkN2QJNYNkN31c1ZjBCN3JX1vzqg7K2QHZyehsr7VJfhp/pRd7V0xKLwp+1b3Xgkdpz0K0QGQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Custom CSS -->
+    <style>
+        /* Page styles */
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        header#masthead {
+            background-color: #2f3e4d;
+            color: #fff;
+            padding: 10px 0;
+        }
+
+        .site-title {
+            font-size: 28px;
+            font-weight: bold;
+            color: #fff;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 10px;
+            margin-left: 20px;
+        }
+
+        .site-title span {
+            color: #f8d825;
+        }
+
+        .site-navigation {
+            margin: 0;
+            padding: 0;
+            text-align: right;
+            float: none;
+        }
+
+        .navbar-header {
+            display: inline-block;
+            float: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar-header button {
+            background-color: #fff;
+            border: none;
+            padding: 10px;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        .navbar-header button:hover {
+            background-color: #eee;
+        }
+
+        .navbar-collapse {
+            margin-top: 10px;
+        }
+
+        .navbar-nav li {
+            display: inline-block;
+            margin: 0;
+            padding: 0;
+            margin-left: 20px;
+        }
+
+        .navbar-nav li a {
+            font-size: 18px;
+            color: #fff;
+            text-decoration: none;
+            display: inline-block;
+            padding: 10px;
+        }
+
+        .navbar-nav li.active a {
+            background-color: #f8d825;
+            border-radius: 3px;
+        }
+
+        /* Team member styles */
+
+        #team-members {
+            margin-top: 30px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .card {
+            width: 300px;
+            height: 400px;
+            margin: 20px;
+            perspective: 1000px;
+        }
+
+        .card-front,
+        .card-back {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            backface-visibility: hidden;
+            transition: transform 0.6s ease-out
+        }
+
+        .card-front {
+            background-color: #fff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border-radius: 5px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        .card-back {
+            background-color: #f8d825;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border-radius: 5px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+            transform: rotateY(-180deg);
+        }
+
+        .card:hover .card-front {
+            transform: rotateY(180deg);
+        }
+
+        .card:hover .card-back {
+            transform: rotateY(0deg);
+        }
+
+        .card img {
+            width: 100%;
+            height: auto;
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+        }
+
+        .card h3 {
+            margin: 10px;
+            font-size: 24px;
+            font-weight: bold;
+            color: #2f3e4d;
+        }
+
+        .card p {
+            margin: 10px;
+            font-size: 18px;
+            color: #2f3e4d;
+            text-align: justify;
+            line-height: 1.5;
+        }
+
+        /* Media queries */
+
+        @media screen and (max-width: 768px) {
+            .navbar-header {
+                margin-top: 10px;
+                margin-left: 15px;
+            }
+
+            .navbar-nav {
+                text-align: center;
+                display: block;
+            }
+
+            .navbar-nav li {
+                display: block;
+                margin-left: 0;
+            }
+
+            .navbar-nav li a {
+                display: block;
+                padding: 10px 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
     <header id="masthead" class="site-header">
-      <nav id="primary-navigation" class="site-navigation">
+        <nav id="primary-navigation" class="site-navigation">
+            <div class="container">
+
+                <div class="navbar-header">
+                    <button id="toggle-menu" class="menu-toggle" aria-expanded="false"
+                        aria-controls="agency-navbar-collapse"><i class="material-icons">menu</i></button>
+                    <a class="site-title"><span>Flood </span>Heroes</a>
+                </div><!-- /.navbar-header -->
+
+                <div class="navbar-collapse" id="agency-navbar-collapse">
+                    <ul class="navbar-nav">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="portfolio.html">Our Work</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li class="active"><a href="ui-elements.html">About Us</a></li>
+                    </ul>
+                </div>
+
+            </div>
+        </nav><!-- /.site-navigation -->
+    </header><!-- /.site-header -->
+
+    <main>
+
         <div class="container">
-          <div class="navbar-header">
-            <a class="site-title"><span>Flood</span>Heroes</a>
-          </div>
-          <div class="collapse navbar-collapse" id="agency-navbar-collapse">
-            <ul class="nav navbar-nav navbar-right">
-              <li><a href="index.html">Home</a></li>
-              <li><a href="portfolio.html">Our Work</a></li>
-              <li><a href="blog.html">Blog</a></li>
-              <li><a href="contact.html">Contact</a></li>
-              <li class="active"><a href="ui-elements.html">About Us</a></li>
-            </ul>
-          </div>
+
+            <h1>About Flood Heroes</h1>
+
+            <p>We are a flood rescue service named Flood Heroes. Our mission is to provide timely and effective
+                assistance to people affected by floods. We have a team of highly trained professionals who are
+                dedicated to saving lives and protecting property. Our team members have years of experience in flood
+                rescue operations and are equipped with the latest technology and equipment to ensure the safety and well-being of those affected by floods.</p>
+            <h2>Meet Our Team</h2>
+
+            <div class="row">
+
+                <div class="col-sm-4">
+                    <div class="card">
+                        <div class="card-front">
+                            <img src="https://via.placeholder.com/300x200.png?text=John" alt="John">
+                            <h3>John</h3>
+                        </div>
+                        <div class="card-back">
+                            <h3>John</h3>
+                            <p>John has been with Flood Heroes for 5 years. He is an expert in swift water rescue and
+                                has saved numerous lives during his time with us. In his free time, John enjoys hiking
+                                and spending time with his family.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-4">
+                    <div class="card">
+                        <div class="card-front">
+                            <img src="https://via.placeholder.com/300x200.png?text=Jane" alt="Jane">
+                            <h3>Jane</h3>
+                        </div>
+                        <div class="card-back">
+                            <h3>Jane</h3>
+                            <p>Jane joined Flood Heroes last year and has already made a huge impact. She specializes in
+                                animal rescue and has saved countless pets during flood operations. In her free time,
+                                Jane volunteers at the local animal shelter.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-4">
+                    <div class="card">
+                        <div class="card-front">
+                            <img src="https://via.placeholder.com/300x200.png?text=Mike" alt="Mike">
+                            <h3>Mike</h3>
+                        </div>
+                        <div class="card-back">
+                            <h3>Mike</h3>
+                            <p>Mike is the newest member of the Flood Heroes team, but he has already proven himself to
+                                be an asset. He is an expert in flood cleanup and has helped restore many homes and
+                                businesses affected by floods. In his free time, Mike enjoys woodworking and building
+                                furniture.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div><!-- /.row -->
+
+        </div><!-- /.container -->
+
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Flood Heroes</p>
         </div>
-      </nav>
-    </header>
-    <!-- Main content -->
-    <div class="container">
-      <main>
-        <section class="about-us">
-          <h1>About Us</h1>
-          <p>
-            Flood Heroes is a professional flood rescue service dedicated to saving lives and protecting communities from the devastating effects of floods and natural disasters. Our team of highly trained and experienced professionals is ready to respond to emergencies 24/7, providing rapid and effective support when it is needed most.
-          </p>
-        </section>
-        <section class="our-team">
-          <h2>Our Team</h2>
-          <div class="team-cards">
-            <!-- Team member cards -->
-            <div class="card" onclick="this.classList.toggle('flipped');">
-              <div class="card-front">
-                <img src="images/team-member-1.jpg" alt="Team member 1" />
-                <div class="member-name">John Doe</div>
-              </div>
-              <div class="card-back">
-                <div class="member-description">
-                  <p>John Doe is a highly experienced flood rescue professional with over 10 years of experience in the
-                    field. He is an expert in water rescue techniques and has been involved in many successful operations, saving countless lives. John is a dedicated and passionate individual who always puts the safety of others first.</p>
-                    <ul class="member-skills">
-                    <li>Water rescue techniques</li>
-                    <li>First aid and emergency response</li>
-                    <li>Risk assessment and management</li>
-                    </ul>
-                    </div>
-                    </div>
-                    </div>
-                    <div class="card" onclick="this.classList.toggle('flipped');">
-                    <div class="card-front">
-                    <img src="images/team-member-2.jpg" alt="Team member 2" />
-                    <div class="member-name">Jane Smith</div>
-                    </div>
-                    <div class="card-back">
-                    <div class="member-description">
-                    <p>Jane Smith is a skilled flood rescue professional with a background in emergency services. She has extensive experience in coordinating large-scale rescue operations and is known for her calm and reassuring demeanor in high-pressure situations.</p>
-                    <ul class="member-skills">
-                    <li>Emergency response coordination</li>
-                    <li>Crisis management</li>
-                    <li>Communication and teamwork</li>
-                    </ul>
-                    </div>
-                    </div>
-                    </div>
-                    <div class="card" onclick="this.classList.toggle('flipped');">
-                    <div class="card-front">
-                    <img src="images/team-member-3.jpg" alt="Team member 3" />
-                    <div class="member-name">Mark Johnson</div>
-                    </div>
-                    <div class="card-back">
-                    <div class="member-description">
-                    <p>Mark Johnson is a highly skilled flood rescue technician with a background in engineering. He is an expert in flood control and prevention and has been involved in the design and implementation of many flood mitigation projects.</p>
-                    <ul class="member-skills">
-                    <li>Flood control and prevention</li>
-                    <li>Engineering and design</li>
-                    <li>Data analysis and modeling</li>
-                    </ul>
-                    </div>
-                    </div>
-                    </div>
-                    </div>
-                    </section>
-                    </main>
-                    </div>
-                    <!-- Import Material UI JavaScript -->
-                    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js" integrity="sha512-HvcOspJwUpkb1vlPFK1ckO70NvnN7Omk9YdNz+mLDUDeW8dkEjIwNLwyTXPKvHNfUcT8/W6SljU6XshUa7ymUg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-                    
-                      </body>
-                    </html>
+    </footer>
+</body>
+
+</html>
